@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head> //co
+  <title>Simple Unit Converter</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    .row { margin-bottom: 15px; }
+    label { width: 180px; display: inline-block; }
+    input { width: 80px; }
+  </style>
+</head>
+<body>
+  <h2>Simple Unit Converter</h2>
+
+  <!-- Meters to Feet -->
+  <div class="row">
+    <label>Meters to Feet:</label>
+    <input id="meters" type="number" placeholder="Meters">
+    <button onclick="convertMeters()">Convert</button>
+    <span id="feetResult"></span>
+  </div>
+
+  <!-- Celsius to Fahrenheit -->
+  <div class="row">
+    <label>Celsius to Fahrenheit:</label>
+    <input id="celsius" type="number" placeholder="Celsius">
+    <button onclick="convertCelsius()">Convert</button>
+    <span id="fahrenheitResult"></span>
+  </div>
+
+  <!-- Imaginary Units: Apples to Bananas -->
+  <div class="row">
+    <label>Apples to Bananas:</label>
+    <input id="apples" type="number" placeholder="Apples">
+    <button onclick="convertApples()">Convert</button>
+    <span id="bananasResult"></span>
+  </div>
+
+  <script>
+    // Convert meters to feet
+    function convertMeters() {
+      var meters = document.getElementById('meters').value;
+      if (meters === "") {
+        document.getElementById('feetResult').textContent = " Please enter a number.";
+        return;
+      }
+      var feet = meters * 3.28084;
+      document.getElementById('feetResult').textContent = " = " + feet.toFixed(2) + " feet";
+    }
+
+    // Convert Celsius to Fahrenheit
+    function convertCelsius() {
+      var celsius = document.getElementById('celsius').value;
+      if (celsius === "") {
+        document.getElementById('fahrenheitResult').textContent = " Please enter a number.";
+        return;
+      }
+      var fahrenheit = (celsius * 9/5) + 32;
+      document.getElementById('fahrenheitResult').textContent = " = " + fahrenheit.toFixed(2) + " °F";
+    }
+
+    // Convert Apples to Bananas (imaginary conversion: 1 apple = 2 bananas)
+    function convertApples() {
+      var apples = document.getElementById('apples').value;
+      if (apples === "") {
+        document.getElementById('bananasResult').textContent = " Please enter a number.";
+        return;
+      }
+      var bananas = apples * 2;
+      document.getElementById('bananasResult').textContent = " = " + bananas + " bananas";
+    }
+  </script>
+</body>
+</html>
